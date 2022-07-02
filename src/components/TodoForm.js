@@ -9,11 +9,11 @@ export const TodoForm = ({ todos, setTodos }) => {
   }
 
   return (
-    <div>
+    <section className="todo-form">
       <form>
         <input onChange={(e) => setInputValue(e.target.value)} type="text" placeholder="Add Todo" />
         <button onClick={(e) => handleAddTodo(e)} type="submit">Add</button>
       </form>
-    </div>
+    </section>
   )
 }

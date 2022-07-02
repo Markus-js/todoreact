@@ -3,7 +3,7 @@ import { TodoCard } from './TodoCard';
 
 export const TodoList = ({ todos, setTodos }) => {
   return (
-    <div>
+    <section className="todo-list">
       todo list
       {todos && todos.map(todo => {
         return (
@@ -12,7 +12,7 @@ export const TodoList = ({ todos, setTodos }) => {
           </div>
         )
       })}
-    </div>
+    </section>
 
   )
 }
