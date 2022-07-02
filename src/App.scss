@@ -42,7 +42,48 @@ $box-shadow: 5px 5px 10px 2px #00000050;
 
 .todo-list {
     @extend %box;
+    &__list {
+        display: flex;
+        flex-direction: column;
+    }
     &__card {
         @extend %box;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        order: -1;
+        &--completed {
+            order: 1;
+            background-color: $green;
+        }
     }
+}
+
+.btn {
+    background-color: $primary-color;
+    border: none;
+    border-radius: 10px;
+    color: $secondary-color;
+    padding: 10px;
+    margin: 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    // &:hover {
+    //     background-color: $yellow;
+    //     color: $secondary-color;
+    // }
+    &--green {
+        background-color: $green;
+    }
+    &--yellow {
+        background-color: $yellow;
+    }
+    &--red {
+        background-color: $red;
+    }
+}
+.icon {
+    font-size: 1.5rem;
 }

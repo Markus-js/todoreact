@@ -1,17 +1,19 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { TodoForm } from './components/TodoForm';
 import { TodoList } from './components/TodoList';
 
 import './App.scss';
 
-const todosList = [{ id: 1, title: 'Todo 1', completed: false }, { id: 2, title: 'Todo 2', completed: true }];
+const init = () => {
+  const exist = window.localStorage.getItem('todo')
+  if (!exist) {
+    window.localStorage.setItem('todo', JSON.stringify([]));
+  }
+  return JSON.parse(window.localStorage.getItem('todo'))
+}
 
 function App() {
-  const [todos, setTodos] = useState([])
-
-  useEffect(() => {
-    console.log(todos)
-  })
+  const [todos, setTodos] = useState(init() || []);
 
   return (
     <div className="todo-app">

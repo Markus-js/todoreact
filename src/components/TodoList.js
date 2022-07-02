@@ -1,17 +1,18 @@
-import React from 'react'
 import { TodoCard } from './TodoCard';
 
 export const TodoList = ({ todos, setTodos }) => {
+  todos.sort((a, b) => a.id - b.id);
+
   return (
     <section className="todo-list">
-      todo list
-      {todos && todos.map(todo => {
-        return (
-          <div key={todo.id}>
-            <TodoCard title={todo.title} setTodos={setTodos} />
-          </div>
-        )
-      })}
+      <h2>To Do List</h2>
+      <div id="todoList" className="todo-list__list">
+        {todos.length >= 1 && todos.map(todo => {
+          return (
+            <TodoCard todo={todo} todos={todos} setTodos={setTodos} key={todo.id} />
+          )
+        })}
+      </div>
     </section>
 
   )
