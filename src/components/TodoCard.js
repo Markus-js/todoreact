@@ -9,24 +9,23 @@ export const TodoCard = ({ todo, todos, setTodos }) => {
   const handleDelete = () => {
     const newList = todos.filter(t => t.id !== todo.id)
     setTodos(newList);
-
+    // LOCAL STOTAGE
     window.localStorage.setItem('todo', JSON.stringify(newList));
   }
 
   const handleComplete = () => {
     const newList = todos.filter(t => t.id !== todo.id)
-    const newTodo = todo;
-    newTodo.completed = !todo.completed;
-    setTodos([...newList, newTodo]);
-
-    window.localStorage.setItem('todo', JSON.stringify([...newList, newTodo]));
+    todo.completed = !todo.completed;
+    setTodos([...newList, todo]);
+    // LOCAL STOTAGE
+    window.localStorage.setItem('todo', JSON.stringify([...newList, todo]));
 
   }
 
 
   return (
-    <div className={todo.completed ? "todo-list__card todo-list__card--completed todo todo--completed" : "todo-list__card todo"} >
-      <h3>{todo.title}</h3>
+    <article className={todo.completed ? "todo-list__card todo-list__card--completed todo todo--completed" : "todo-list__card todo"} >
+      <h3 className="todo-list__title" >{todo.title}</h3>
       <div>
         <button
           onClick={handleComplete}
@@ -39,11 +38,12 @@ export const TodoCard = ({ todo, todos, setTodos }) => {
           <button
             onClick={handleDelete}
             className="todo__button--remove btn btn--red"
+            type="button"
           >
             <RiDeleteBinLine className="icon" />
           </button>
         }
       </div>
-    </div>
+    </article>
   )
 }

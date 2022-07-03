@@ -5,12 +5,10 @@
 }
 
 $primary-color: #c2c2c2;
-$secondary-color: #fff;
-$completed-color: #ffffff5c;
+$completed-color: #9595955c;
 $yellow: #ffb304;
 $green: #1fd19f;
 $red: #fd6c6b;
-$purple: #572cac;
 
 $box-shadow: 5px 5px 10px 2px #00000050;
 
@@ -46,15 +44,21 @@ $box-shadow: 5px 5px 10px 2px #00000050;
         display: flex;
         flex-direction: column;
     }
+    &__title {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
     &__card {
         @extend %box;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+        align-items: center;
         order: -1;
         &--completed {
             order: 1;
-            background-color: $green;
+            background-color: $completed-color;
         }
     }
 }
@@ -63,17 +67,16 @@ $box-shadow: 5px 5px 10px 2px #00000050;
     background-color: $primary-color;
     border: none;
     border-radius: 10px;
-    color: $secondary-color;
+    color: fff;
     padding: 10px;
     margin: 10px;
     font-size: 1.2rem;
     font-weight: bold;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
-    // &:hover {
-    //     background-color: $yellow;
-    //     color: $secondary-color;
-    // }
+    &:hover {
+        opacity: 70%;
+    }
     &--green {
         background-color: $green;
     }
