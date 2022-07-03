@@ -2,8 +2,17 @@ import React from 'react';
 import { BiUndo } from 'react-icons/bi';
 import { RiDeleteBinLine } from 'react-icons/ri';
 import { MdOutlineDone } from 'react-icons/md';
+import { ITodos } from '../App';
 
-const TodoCard = ({ todo, todos, setTodos }) => {
+interface IProps {
+  todo: ITodos;
+  todos: ITodos[];
+  setTodos: (todos: ITodos[]) => void;
+}
+
+
+
+const TodoCard: React.FC<IProps> = ({ todo, todos, setTodos }) => {
   const handleDelete = () => {
     const newList = todos.filter(t => t.id !== todo.id);
     setTodos(newList);
@@ -43,4 +52,4 @@ const TodoCard = ({ todo, todos, setTodos }) => {
   );
 };
 
-export default TodoCard;;
+export default TodoCard;

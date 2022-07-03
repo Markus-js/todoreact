@@ -1,6 +1,6 @@
-{
-  "extends": [
-    "salt",
-    "salt/react"
-  ]
-}
+// {
+//   "extends": [
+//     "salt",
+//     "salt/react"
+//   ]
+// }

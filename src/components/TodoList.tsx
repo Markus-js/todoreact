@@ -1,6 +1,8 @@
-import { TodoCard } from './TodoCard';
+import React from 'react';
+import TodoCard from './TodoCard';
+import { IProps } from '../App';
 
-export const TodoList = ({ todos, setTodos }) => {
+const TodoList: React.FC<IProps> = ({ todos, setTodos }) => {
   todos.sort((a, b) => a.id - b.id);
 
   return (
@@ -15,3 +17,5 @@ export const TodoList = ({ todos, setTodos }) => {
 
   );
 };
+
+export default TodoList;

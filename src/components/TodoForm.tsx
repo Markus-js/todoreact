@@ -1,11 +1,12 @@
-import { useState, useRef } from 'react';
+import React, { useState, useRef, MouseEvent } from 'react';
+import { IProps } from '../App';
 
-export const TodoForm = ({ todos, setTodos }) => {
+const TodoForm: React.FC<IProps> = ({ todos, setTodos }) => {
   const [inputValue, setInputValue] = useState('');
 
-  const inputRef = useRef(null);
+  const inputRef = React.useRef<HTMLInputElement | null>(null);
 
-  const handleAddTodo = e => {
+  const handleAddTodo = (e: MouseEvent<HTMLButtonElement>): void => {
     e.preventDefault();
     if (inputValue.trim() === '') {
       return;
@@ -14,7 +15,8 @@ export const TodoForm = ({ todos, setTodos }) => {
     // LOCAL STOTAGE
     window.localStorage.setItem('todo', JSON.stringify([...todos, { id: todos.length + 1, title: inputValue, completed: false }]));
     setInputValue('');
-    inputRef.current.value = null;
+    inputRef.current!.value = '';
+
   };
 
   return (
@@ -26,3 +28,5 @@ export const TodoForm = ({ todos, setTodos }) => {
     </section>
   );
 };
+
+export default TodoForm;
