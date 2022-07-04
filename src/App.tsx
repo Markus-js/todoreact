@@ -12,7 +12,7 @@ export interface ITodos {
 
 export interface IProps {
   todos: ITodos[];
-  setTodos: (todos: ITodos[]) => void;
+  setTodos: (todos: ITodos[]) => void
 }
 
 const init = () => {
@@ -32,6 +32,6 @@ const App: React.FC = () => {
       <TodoList todos={todos} setTodos={setTodos} />
     </div>
   );
-}
+};
 
 export default App;

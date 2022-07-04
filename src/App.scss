@@ -51,6 +51,7 @@ $box-shadow: 5px 5px 10px 2px #00000050;
     }
     &__card {
         @extend %box;
+        min-width: 300px;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
